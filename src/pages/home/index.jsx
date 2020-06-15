@@ -7,7 +7,7 @@ import { getName, getdel, status } from '@/action/home'
 
 function Home (props) {
   const { getName, getdel, data, status } = props
-  const [datatwo, setDat] = useState(data)
+  const [List, setDat] = useState(data)
   const [obj, setObj] = useState({})
   const [selectedRowKeys, setSele] = useState([])
   const [selename, setNam] = useState([])
@@ -15,8 +15,6 @@ function Home (props) {
   const [form] = Form.useForm();
 
   const onSelectChange = selectedRowKeys => {
-    console.log('selectedRowKeys changed: ', selectedRowKeys);
-    // this.setState({ selectedRowKeys });
     setSele( [...selectedRowKeys] )
     const setnam = data.filter(item => {
       return selectedRowKeys == item.id
@@ -31,14 +29,14 @@ function Home (props) {
 
   useEffect(() => {
     getName()
-  }, [datatwo])
+  }, [List])
 
-  const shan = (val) =>{
+  const del = (val) =>{
     getdel(val)
     setDat(data)
   }
 
-  const gai = (val) => {
+  const upd = (val) => {
     setObj(val)
     status(true)
   }
@@ -68,8 +66,8 @@ function Home (props) {
       key: 'action',
       render: (text, record) => (
         <Space size="middle">
-          <Button onClick={() => gai(record) } >修改</Button>
-          <Button onClick={() => shan(record) } >删除</Button>
+          <Button onClick={() => upd(record) } >修改</Button>
+          <Button onClick={() => del(record) } >删除</Button>
         </Space>
       ),
     },
