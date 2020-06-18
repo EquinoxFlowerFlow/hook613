@@ -14,7 +14,7 @@ function Home (props) {
 
   const [form] = Form.useForm();
 
-  const onSelectChange = selectedRowKeys => {
+  const onSelectChange = (selectedRowKeys, value) => {
     setSele( [...selectedRowKeys] )
     const setnam = data.filter(item => {
       return selectedRowKeys == item.id

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
-import { Login, Home, Reg } from './assembly'
+import { Login, Home, Reg, Label } from './assembly'
 
 const Root = ({ route }) => renderRoutes(route.routes)
 
@@ -13,6 +13,10 @@ const routes = [
       {
         path: '/home',
         component: Home
+      },
+      {
+        path: '/label',
+        component: Label
       },
       {
         path: '/',
